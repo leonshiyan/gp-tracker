@@ -1,0 +1,22 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+	<h1><%= title %></h1>
+  <p>Please first ensure that the Station is not in the dropdown
+    <select>
+      <% stations.forEach(function(station) { %>
+        <option><%= station.name %>: <%= station.address %> </option>
+      <% }) %>
+    </select>
+  </p>
+  <form id="add-station-form" action="/stations" method="POST">
+    <label for="station-input">Name:</label>
+    <input type="text" name="name" id="name-input">
+    <label for="address-textarea">Address:</label>
+    <textarea name="address" id="address-textarea"></textarea>
+    <button type="submit">Add Station</button>
+  </form>
+</main>
+
+<%- include('../partials/footer') %>
