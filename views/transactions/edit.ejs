@@ -1,0 +1,30 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit the transaction!</h1>
+  <form 
+    action="/transactions/<%= transaction._id %>?_method=PUT"
+    method="POST"
+  >
+  <label for="amount-input">Amount:</label>
+  <input type="text" name="amount" id="amount-input">
+  <label for="gas-amount-input">Gas Amount(L):</label>
+  <input type="text" name="gasAmount" id="gas-amount-input">
+  <label for="gas-type-select">Gas Type</label>
+  <select name="gasType" id="gas-type-select">
+    <option value="87">87</option>
+    <option value="89">89</option>
+    <option value="91">91</option>
+    <option value="94">94</option>
+  </select>
+  <select name="station">
+    <% stations.forEach(station => { %>
+      <option value="<%= station._id %>"><%= station.name %>:<%= station.address %> </option>
+    <% }) %>
+  </select>
+  <button type="submit">Edit the Transaction</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>

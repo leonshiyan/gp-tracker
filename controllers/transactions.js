@@ -57,7 +57,7 @@ function update(req, res) {
     if (transaction.owner.equals(req.user.profile._id)) {
       transaction.updateOne(req.body)
       .then(()=> {
-        res.redirect(`/transactions/${taco._id}`)
+        res.redirect(`/transactions/${transaction._id}`)
       })
     } else {
       throw new Error('🚫 Not authorized 🚫')
@@ -68,9 +68,28 @@ function update(req, res) {
     res.redirect('/tacos')
   })
 }
-function edit(req,res){
-  
+function edit(req, res) {
+  Transaction.findById(req.params.id)
+    .then(transaction => {
+      Station.find({})
+        .then(stations => {
+          res.render('transactions/edit', {
+            transaction,
+            stations,
+            title: 'edit transaction'
+          });
+        })
+        .catch(err => {
+          console.log(err);
+          res.redirect('/transactions');
+        });
+    })
+    .catch(err => {
+      console.log(err);
+      res.redirect('/transactions');
+    });
 }
+
 export {
   newTransaction as new,
   index,
