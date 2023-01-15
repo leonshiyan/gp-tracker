@@ -16,7 +16,7 @@
         <option value="91">91</option>
         <option value="94">94</option>
       </select>
-      <select name="stationId">
+      <select name="station">
         <% stations.forEach(station => { %>
           <option value="<%= station._id %>"><%= station.name %>:<%= station.address %> </option>
         <% }) %>

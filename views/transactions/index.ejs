@@ -20,7 +20,10 @@
 	<ul>
   <% transactions.forEach(transaction => { %>
     <li>
-      <a href="/transactions/<%= transaction._id %>"><%= transaction.name %></a>
+      <a href="/transactions/<%= transaction._id %>">
+        <%= transaction.amount/transaction.gasAmount %> Gas Price at 
+        <%= transaction.createdAt %>
+      </a>
     </li>
   <% }) %>
   </ul>

@@ -24,12 +24,22 @@ function index(req, res) {
   })
 }
 
-
+function create(req, res) {
+  req.body.owner = req.user.profile._id
+  Transaction.create(req.body)
+  .then(transaction => {
+    res.redirect('/transactions')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/transactions')
+  })
+}
 
 export {
   newTransaction as new,
   index,
-  // create,
+  create,
   // show,
   // edit,
   // update,
