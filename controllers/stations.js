@@ -4,13 +4,13 @@ function newStation(req, res) {
   Station.find({})
   .then(stations => {
     res.render('stations/new', {
-      title: 'Add Performer',
-      performers
+      title: 'Add Station',
+      stations
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/movies')
+    res.redirect('/transactions')
   })
 }
 
@@ -21,7 +21,7 @@ function create(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/movies')
+    res.redirect('/transactions')
   })
 }
 
