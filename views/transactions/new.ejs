@@ -18,7 +18,11 @@
         <option value="91">91</option>
         <option value="94">94</option>
       </select>
-      
+      <select name="stationId">
+        <% stations.forEach(station => { %>
+          <option value="<%= station._id %>"><%= station.name %>:<%= station.address %> </option>
+        <% }) %>
+      </select>
       <button type="submit">Add Movie</button>
     </form>
   <% } %>
