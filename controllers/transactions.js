@@ -36,12 +36,45 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Transaction.findById(req.params.id)
+  .populate('owner')
+  .then(transaction => {
+    res.render('transactions/show', {
+      title: "Transaction show",
+      taco
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/transaction')
+  })
+}
+
+function update(req, res) {
+  Transaction.findById(req.params.id)
+  .then(transaction => {
+    if (transaction.owner.equals(req.user.profile._id)) {
+      transaction.updateOne(req.body)
+      .then(()=> {
+        res.redirect(`/transactions/${taco._id}`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/tacos')
+  })
+}
 export {
   newTransaction as new,
   index,
   create,
-  // show,
+  show,
+  update,
+  
   // edit,
-  // update,
   // deleteTaco as delete
 }

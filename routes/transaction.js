@@ -6,11 +6,10 @@ const router = Router()
 
 router.get('/', transacCtrl.index)
 router.get('/new', transacCtrl.new)
-// router.get('/:id', tacosCtrl.show)
+router.get('/:id', transacCtrl.show)
 // router.get('/:id/edit', isLoggedIn, tacosCtrl.edit)
 router.post('/', isLoggedIn, transacCtrl.create)
-// router.patch('/:id/flip-tasty', isLoggedIn, tacosCtrl.flipTasty)
-// router.put('/:id', isLoggedIn, tacosCtrl.update)
+router.put('/:id', isLoggedIn, transacCtrl.update)
 // router.delete('/:id', isLoggedIn, tacosCtrl.delete)
 
 export {
