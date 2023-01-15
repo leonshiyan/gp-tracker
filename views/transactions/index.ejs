@@ -1,0 +1,29 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Lastest Transactions!</h1>
+  <% if (user) { %>
+    <!-- <form action="/tacos" method="POST">
+      <label>
+        Name:
+        <input type="text" name="name" autocomplete="off">
+      </label>
+      <label>
+        Tasty?
+        <input type="checkbox" name="tasty">
+      </label>
+      <button type="submit">Add 🌮</button>
+    </form> -->
+  <% } %>
+  <h2>All the Transactions!</h2>
+	<ul>
+  <% transactions.forEach(transaction => { %>
+    <li>
+      <a href="/transactions/<%= transaction._id %>"><%= transaction.name %></a>
+    </li>
+  <% }) %>
+  </ul>
+</section>
+
+<%- include('../partials/footer') %>
