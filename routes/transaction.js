@@ -10,7 +10,7 @@ router.get('/:id', transacCtrl.show)
 router.get('/:id/edit', isLoggedIn, transacCtrl.edit)
 router.post('/', isLoggedIn, transacCtrl.create)
 router.put('/:id', isLoggedIn, transacCtrl.update)
-// router.delete('/:id', isLoggedIn, tacosCtrl.delete)
+router.delete('/:id', isLoggedIn, transacCtrl.delete)
 
 export {
   router

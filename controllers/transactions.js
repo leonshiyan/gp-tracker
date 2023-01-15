@@ -89,7 +89,9 @@ function edit(req, res) {
       res.redirect('/transactions');
     });
 }
-
+function deleteTransac(req,res){
+  
+}
 export {
   newTransaction as new,
   index,
@@ -97,5 +99,5 @@ export {
   show,
   update,
   edit,
-  // deleteTaco as delete
+  deleteTransac as delete
 }
