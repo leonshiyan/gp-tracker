@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <p>From contributer of <%= transaction.owner.name %>...</p>
+
+  <% if (user) { %>
+    <h1><%= transaction._id %></h1>
+  <% } %>
+
+  <% if (transaction.owner.equals(user?.profile._id)) { %>
+    <a href="/transactions/<%= transaction._id %>/edit">
+      <button class="btn">Update this Transaction</button>
+    </a>
+
+  <% } %>
+</section>
+
+<%- include('../partials/footer') %>

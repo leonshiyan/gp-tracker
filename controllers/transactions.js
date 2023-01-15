@@ -42,7 +42,7 @@ function show(req, res) {
   .then(transaction => {
     res.render('transactions/show', {
       title: "Transaction show",
-      taco
+      transaction
     })
   })
   .catch(err => {
