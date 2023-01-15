@@ -68,13 +68,15 @@ function update(req, res) {
     res.redirect('/tacos')
   })
 }
+function edit(req,res){
+  
+}
 export {
   newTransaction as new,
   index,
   create,
   show,
   update,
-  
-  // edit,
+  edit,
   // deleteTaco as delete
 }
