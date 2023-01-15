@@ -12,6 +12,12 @@
     <a href="/transactions/<%= transaction._id %>/edit">
       <button class="btn">Update this Transaction</button>
     </a>
+    <form 
+      action="/transactions/<%= transaction._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button class="btn" type="submit">Delete this transaction ⚠</button>
+    </form>
 
   <% } %>
 </section>
