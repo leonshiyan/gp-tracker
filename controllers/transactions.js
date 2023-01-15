@@ -1,5 +1,15 @@
 import { Transaction } from '../models/transaction.js'
+import { Station } from "../models/station.js"
 
+function newTransaction (req,res){
+  Station.find({})
+  .then(stations =>{
+    res.render('transactions/new',{
+      title: 'Add Transaction',
+      stations
+    })
+  })
+}
 function index(req, res) {
   Transaction.find({})
   .then(transactions => {
@@ -17,6 +27,7 @@ function index(req, res) {
 
 
 export {
+  newTransaction as new,
   index,
   // create,
   // show,

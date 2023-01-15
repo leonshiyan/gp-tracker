@@ -9,8 +9,6 @@
       <input type="text" name="amount" id="amount-input">
       <label for="gas-amount-input">Gas Amount(L):</label>
       <input type="text" name="gasAmount" id="gas-amount-input">
-      <label for="station-input">Station Address:</label>
-      <input type="text" name="station" checked id="station-input">
       <label for="gas-type-select">Gas Type</label>
       <select name="gasType" id="gas-type-select">
         <option value="87">87</option>
@@ -23,7 +21,7 @@
           <option value="<%= station._id %>"><%= station.name %>:<%= station.address %> </option>
         <% }) %>
       </select>
-      <button type="submit">Add Movie</button>
+      <button type="submit">Add Transaction</button>
     </form>
   <% } %>
   
