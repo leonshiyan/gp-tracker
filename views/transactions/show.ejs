@@ -2,7 +2,10 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <p>From Gas Station of <%= transaction.station.name %>...</p>
+  <p>From Gas Station of 
+    <a href="/stations/<%= station._id %>/show"> <%= transaction.station.name %></a>
+  </p>
+
   <% if (transaction.owner.equals(user?.profile._id)) { %>
     <a href="/transactions/<%= transaction._id %>/edit">
       <button class="btn">Update this Transaction</button>
