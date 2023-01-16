@@ -24,8 +24,11 @@ function create(req, res) {
     res.redirect('/transactions')
   })
 }
-
+function createReview(req,res){
+  
+}
 export {
   newStation as new,
-  create
+  create,
+  createReview
 }

@@ -38,11 +38,15 @@ function create(req, res) {
 
 function show(req, res) {
   Transaction.findById(req.params.id)
-  .populate('owner')
+  .populate('station')
   .then(transaction => {
-    res.render('transactions/show', {
-      title: "Transaction show",
-      transaction
+    Station.findOne({_id:transaction.station})
+    .then(station=>{
+      res.render('transactions/show', {
+        title: "Transaction show",
+        transaction:transaction,
+        station:station
+      })
     })
   })
   .catch(err => {

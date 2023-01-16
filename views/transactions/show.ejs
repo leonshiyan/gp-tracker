@@ -2,42 +2,7 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <p>From contributer of <%= transaction.owner.name %>...</p>
-
-  <% if (user) { %>
-    <h1><%= transaction._id %></h1>
-    <% if (transaction.reviews.length) { %>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Review</th>
-            <th>Rating</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% let total = 0 %> 
-          <% transaction.reviews.forEach(function(review) { %>
-            <% total += review.rating %>
-            <tr>
-              <td><%= review.createdAt.toLocaleDateString() %></td>
-              <td><%= review.content %></td>
-              <td><%= review.rating %></td>
-            </tr>
-          <% }) %>
-          <tr>
-            <td colspan="2"></td>
-            <td>
-              <strong><%= (total / transaction.reviews.length).toFixed(1) %></strong>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    <% } else { %>
-      <h3>No Reviews Yet</h3>
-    <% } %>
-  <% } %>
-
+  <p>From Gas Station of <%= transaction.station.name %>...</p>
   <% if (transaction.owner.equals(user?.profile._id)) { %>
     <a href="/transactions/<%= transaction._id %>/edit">
       <button class="btn">Update this Transaction</button>

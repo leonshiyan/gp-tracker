@@ -16,7 +16,7 @@ const transacSchema = new Schema({
   },
   station: {
     type: Schema.Types.ObjectId, 
-    ref: "Profile"},
+    ref: "Station"},
 }, {
   timestamps: true
 })
