@@ -1,7 +1,7 @@
 import { Transaction } from '../models/transaction.js'
 import { Station } from "../models/station.js"
 
-function newTransaction (req,res){
+function newTrans (req,res){
   Station.find({})
   .then(stations =>{
     res.render('transactions/new',{
@@ -89,15 +89,29 @@ function edit(req, res) {
       res.redirect('/transactions');
     });
 }
-function deleteTransac(req,res){
-  
+function deleteTrans(req,res){
+  Transaction.findById(req.params.id)
+  .then(transaction => {
+    if (transaction.owner.equals(req.user.profile._id)) {
+      transaction.delete()
+      .then(()=> {
+        res.redirect(`/transactions`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/transactions')
+  })
 }
 export {
-  newTransaction as new,
+  newTrans as new,
   index,
   create,
   show,
   update,
   edit,
-  deleteTransac as delete
+  deleteTrans as delete
 }
