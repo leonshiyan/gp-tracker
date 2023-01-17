@@ -4,10 +4,14 @@
   <h1><%= title %></h1>
   <div class="container-md">
     <% if (user) { %>
-      <form class="row g-4 needs-validation" novalidate action="/transactions" method="POST">
+      <form 
+      class="row g-4 needs-validation" novalidate 
+      action="/transactions" 
+      method="POST"
+      >
         <div class="col-md-6">
-          <label for="validationCustom01" class="form-label">Amount:</label>
-          <input type="text" class="form-control" name="amount" id="validationCustom01" required>
+          <label for="amount-input" class="form-label">Amount:</label>
+          <input type="text" class="form-control" name="amount" id="amount-input" required>
           <div class="valid-feedback">
             Looks good!
           </div>
