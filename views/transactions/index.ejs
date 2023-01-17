@@ -3,17 +3,26 @@
 
 <section>
   <h2>All the Transactions!</h2>
-	<ul>
-  <% transactions.forEach(transaction => { %>
-    <li>
-      <a href="/transactions/<%= transaction._id %>">
-        <%= transaction.amount/transaction.gasAmount %> Gas Price at 
-        <%= transaction.createdAt %>
-        <%=  %> 
-      </a>
-    </li>
-  <% }) %>
-  </ul>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Time</th>
+        <th scope="col">Unit Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% transactions.forEach(transaction => { %>
+        <tr>
+          <th scope="row"><%= transaction.createdAt %></th>
+          <td><a href="/transactions/<%= transaction._id %>">
+            <%= transaction.amount/transaction.gasAmount %> 
+          </a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+ 
+
 </section>
 
 <%- include('../partials/footer') %>
