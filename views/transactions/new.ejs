@@ -4,11 +4,21 @@
 <section>
   <h1>Add Transactions!</h1>
   <% if (user) { %>
-    <form id="new-form" action="/transactions" method="POST">
-      <label for="amount-input">Amount:</label>
-      <input type="text" name="amount" id="amount-input">
-      <label for="gas-amount-input">Gas Amount(L):</label>
-      <input type="text" name="gasAmount" id="gas-amount-input">
+    <form class="row g-3 needs-validation" novalidate action="/transactions" method="POST">
+      <div class="col-md-6">
+        <label for="validationCustom01" class="form-label">Amount:</label>
+        <input type="text" class="form-control" name="amount" id="validationCustom01">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="gas-amount-input" class="form-label">Gas Amount(L):</label>
+        <input type="text" class="form-control" name="gasAmount" id="gas-amount-input">
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
       <label for="gas-type-select">Gas Type</label>
       <select name="gasType" id="gas-type-select">
         <option value="87">87</option>
