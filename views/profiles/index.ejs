@@ -1,0 +1,12 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <h1>Hello, <%= user ? user.profile.name : "Guest" %></h1>
+  <% if (user?.profile.avatar) { %>
+    <div>
+    </div>
+  <% } %>
+</main>
+
+<%- include('../partials/footer') %>
