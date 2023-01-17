@@ -1,55 +1,54 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-
-<section>
-  <h1>Add Transactions!</h1>
-  <% if (user) { %>
-    <form class="row g-4 needs-validation" novalidate action="/transactions" method="POST">
-      <div class="col-md-6">
-        <label for="validationCustom01" class="form-label">Amount:</label>
-        <input type="text" class="form-control" name="amount" id="validationCustom01" required>
-        <div class="valid-feedback">
-          Looks good!
+<main>
+  <h1><%= title %></h1>
+  <div class="container-md">
+    <% if (user) { %>
+      <form class="row g-4 needs-validation" novalidate action="/transactions" method="POST">
+        <div class="col-md-6">
+          <label for="validationCustom01" class="form-label">Amount:</label>
+          <input type="text" class="form-control" name="amount" id="validationCustom01" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
-      </div>
-      <div class="col-md-6">
-        <label for="gas-amount-input" class="form-label">Gas Amount(L):</label>
-        <input type="text" class="form-control" name="gasAmount" id="gas-amount-input" required>
-        <div class="valid-feedback">
-          Looks good!
+        <div class="col-md-6">
+          <label for="gas-amount-input" class="form-label">Gas Amount(L):</label>
+          <input type="text" class="form-control" name="gasAmount" id="gas-amount-input" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <label for="gas-type-select" class="form-label">Gas Type:</label>
-        <select name="gasType" class="form-select" id="gas-type-select" required>
-          <option value="87">87</option>
-          <option value="89">89</option>
-          <option value="91">91</option>
-          <option value="94">94</option>
-        </select>
-        <div class="valid-feedback">
-          Looks good!
+        <div class="col-md-4">
+          <label for="gas-type-select" class="form-label">Gas Type:</label>
+          <select name="gasType" class="form-select" id="gas-type-select" required>
+            <option value="87">87</option>
+            <option value="89">89</option>
+            <option value="91">91</option>
+            <option value="94">94</option>
+          </select>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
-      </div>
-      <div class="col-md-8">
-        <label for="station" class="form-label">Select Station</label>
-        <select name="station" class="form-select" id="station-select" required>
-          <% stations.forEach(station => { %>
-            <option value="<%= station._id %>"><%= station.name %>:<%= station.address %> </option>
-          <% }) %>
-        </select>
-        <div class="valid-feedback">
-          Looks good!
+        <div class="col-md-8">
+          <label for="station" class="form-label">Select Station</label>
+          <select name="station" class="form-select" id="station-select" required>
+            <% stations.forEach(station => { %>
+              <option value="<%= station._id %>"><%= station.name %>:<%= station.address %> </option>
+            <% }) %>
+          </select>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
-      </div>
-      <div class="col-12">
-      <button type="submit">Add Transaction</button>
-      </div>
-    </form>
-  <% } else { %>
-    <h2>Please Login to Add Transactions!</h2>
-  <% } %> 
-  
-</section>
-
+        <div class="col-12">
+        <button type="submit">Add Transaction</button>
+        </div>
+      </form>
+    <% } else { %>
+      <h2>Please Login to Add Transactions!</h2>
+    <% } %> 
+  </div>
+</main>
 <%- include('../partials/footer') %>
