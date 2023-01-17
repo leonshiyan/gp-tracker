@@ -2,13 +2,11 @@
 <%- include('../partials/nav') %>
 
 <main>
-  <section>
     <h1><%= title %></h1>
-    <div>Station Name: </div>
-    <div><%= station.name %> </div>
-    <div>Station Address: </div>
-    <div><%= station.address %></div>
-  </section>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Station Name : <%= station.name %></li>
+      <li class="list-group-item">Station Address: <%= station.address %></li>
+    </ul>
   <% if (user) { %>
     <h2>Reviews</h2>
     <form 
@@ -28,6 +26,10 @@
       </select>
       <button type="submit">Add Review</button>
   </form>
+</main>
+<% } else { %>
+  <h2>Login to add reviews</h2>
+  <% } %> 
   <% if (station.reviews.length) { %>
     <table>
       <thead>
@@ -55,12 +57,7 @@
           </tr>
         </tbody>
       </table>
-      <% } else { %>
-        <h3>No Reviews Yet</h3>
-        <% } %>
-      </main>
-      <% } else { %>
-        <h2>Login to add reviews</h2>
-        <% } %> 
-      
-      <%- include('../partials/footer') %>
+  <% } else { %>
+    <h3>No Reviews Yet</h3>
+  <% } %>
+  <%- include('../partials/footer') %>
