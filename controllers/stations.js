@@ -42,6 +42,9 @@ function createReview(req,res){
   // Find the station by it's _id
   Station.findById(req.params.id)
   .then(station => {
+    for (let key in req.body) {
+      if (req.body[key] === '') delete req.body[key]
+    }
     // Push req.body (form data) into the embedded schema
     station.reviews.push(req.body)
     // Save the updated movie document
