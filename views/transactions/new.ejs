@@ -46,9 +46,11 @@
         <button type="submit">Add Transaction</button>
         </div>
       </form>
-    <% } else { %>
-      <h2>Please Login to Add Transactions!</h2>
-    <% } %> 
   </div>
 </main>
+<% } else { %>
+  <div class="mx-auto" style="width: 500px;">
+    <h2>Please Login to Add Transaction</h2>
+  </div>
+<% } %> 
 <%- include('../partials/footer') %>

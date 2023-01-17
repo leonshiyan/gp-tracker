@@ -3,24 +3,27 @@
 
 <main>
   <h1><%= title %></h1>
-  </div>  <% if (user) { %>
+  <div class="container-md">
+  <% if (user) { %>
     <p>Please first ensure that the Station is not in the dropdown
       <select>
         <% stations.forEach(function(station) { %>
           <option><%= station.name %>: <%= station.address %> </option>
-          <% }) %>
-        </select>
-      </p>
-      <form id="add-station-form" action="/stations" method="POST">
-        <label for="station-input">Name:</label>
-        <input type="text" name="name" id="name-input">
-        <label for="address-textarea">Address:</label>
-        <textarea name="address" id="address-textarea"></textarea>
-        <button type="submit">Add Station</button>
-      </form>
-    </main>
+        <% }) %>
+      </select>
+    </p>
+    <form id="add-station-form" action="/stations" method="POST">
+      <label for="station-input">Name:</label>
+      <input type="text" name="name" id="name-input">
+      <label for="address-textarea">Address:</label>
+      <textarea name="address" id="address-textarea"></textarea>
+      <button type="submit">Add Station</button>
+    </form>
     <% } else {%>
-      <h2>Please Login to Add gas stations!</h2>
-      <% } %> 
-    
-    <%- include('../partials/footer') %>
+      <div class="mx-auto" style="width: 500px;">
+        <h2>Please Login to Add Gas Stations</h2>
+      </div>
+    <% } %> 
+  </div>
+</main>
+<%- include('../partials/footer') %>
