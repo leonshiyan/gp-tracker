@@ -48,7 +48,7 @@ function createReview(req,res){
     station.save()
     .then(() => {
       // Redirect back to movie show view
-      res.redirect(`/stations/${station._id}`)
+      res.redirect(`/stations/${station._id}/show`)
     })
     .catch(err => {
       console.log(err)
