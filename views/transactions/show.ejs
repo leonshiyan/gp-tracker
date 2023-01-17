@@ -1,23 +1,32 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-
-<section>
-  <p>From Gas Station of 
-    <a href="/stations/<%= station._id %>/show"> <%= transaction.station.name %></a>
-  </p>
-
+<div class="container-md">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Transaction Time</th>
+        <th scope="col">Station Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"><%= transaction.createdAt %></th>
+        <th scope="row"><a href="/stations/<%= station._id %>/show"> <%= transaction.station.name %></a></th>
+      </tr>
+    </tbody>
+    </table>   
   <% if (transaction.owner.equals(user?.profile._id)) { %>
     <a href="/transactions/<%= transaction._id %>/edit">
-      <button class="btn">Update this Transaction</button>
+      <button class="btn btn-warning">Update this Transaction</button>
     </a>
     <form 
       action="/transactions/<%= transaction._id %>?_method=DELETE"
       method="POST"
     >
-      <button class="btn" type="submit">Delete this transaction ⚠</button>
+      <button class="btn btn-danger" type="submit">Delete this transaction ⚠</button>
     </form>
 
   <% } %>
-</section>
+</div>
 
 <%- include('../partials/footer') %>
