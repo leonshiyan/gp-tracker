@@ -5,6 +5,8 @@ const Schema = mongoose.Schema
 const profileSchema = new Schema({
   name: String,
   avatar: String,
+  transactions: [{type: Schema.Types.ObjectId, ref: "Transaction"}],
+  milage: Number
 }, {
   timestamps: true
 })
