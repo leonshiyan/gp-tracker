@@ -7,7 +7,7 @@
 [Access the GPTacker here](https://gp-tracker.fly.dev/)
 
 ## Viewing as a guest:
-<img src="https://user-images.githubusercontent.com/23459228/209189519-5b204e58-3c2e-465f-80e1-c7e6b1eb622d.png" alt="Screenshot" width="500"/> 
+
 
 ## How I planned
 
