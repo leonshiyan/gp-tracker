@@ -112,7 +112,19 @@ function deleteTrans(req,res){
     if (transaction.owner.equals(req.user.profile._id)) {
       transaction.delete()
       .then(()=> {
-        res.redirect(`/transactions`)
+        Profile.findOneAndUpdate(
+          { _id: req.user.profile._id },
+          { $pull: { transactions: transaction._id } },
+          { new: true }
+        )
+        .then(profile => {
+          // The user's profile has been updated without the deleted transaction id
+          res.redirect('/transactions')
+        })
+        .catch(err => {
+          console.log(err)
+          res.redirect('/transactions')
+        })
       })
     } else {
       throw new Error('🚫 Not authorized 🚫')
