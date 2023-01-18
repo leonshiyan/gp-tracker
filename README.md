@@ -1,65 +1,32 @@
-# MEN Stack with OAuth Template
+# GPTracker
 
-This is a MEN Stack template that includes OAuth.
+## A portable fuel purchase tracker.
 
-Use this to go build things! 🚀
+>GPTracker app allows you to easily log and track all of your fuel purchases, helping you stay on top of your fuel costs and expenses. With features like shared purchase log and detailed reports, our app makes it easy to stay organized and in control of your fuel expenses.
 
-## To Use This Template
+[Access the GPTacker here](https://gp-tracker.fly.dev/)
 
-__Replace `<name-of-your-app-here>` in the commands below with the name of your app!__
+## Viewing as a guest:
+<img src="https://user-images.githubusercontent.com/23459228/209189519-5b204e58-3c2e-465f-80e1-c7e6b1eb622d.png" alt="Screenshot" width="500"/> 
 
-```bash
-git clone https://github.com/SEI-Remote/men-stack-oauth-template.git <name-of-your-app-here>
-cd <name-of-your-app-here>
-```
+## How I planned
 
-Once you are in the project directory:
+Planning materials can be found [here](https://trello.com/b/S1AY1NkM/gptracker).
 
-```bash
-rm -rf .git
-```
 
-Here's what your command line output should like after this step (note that the indicator that we are in a git repository is gone!)
+## Technologies Used
++ **HTML**
++ **JavaScript**
++ **CSS**
++ **Bootstrap**
++ **MEN Stack**
 
-<img src="https://i.imgur.com/L47kNOZ.png" alt="The command line before and after running the rm -rf .git command. Before git:(main) is visible indiating that the directory contains a git repository, after the command it is not.">
+## Credits
++ Text font from Google Font [Nunito](https://fonts.google.com/specimen/Nunito)
 
-Re-initialize a git repository:
 
-```bash
-git init
-```
-
-Create a repo for this project on GitHub and add that remote to your project with `git remote add origin Your-repo-URL-here`.
-
-Run npm i to fetch the template's dependencies:
-
-```bash
-npm i
-```
-
-touch a .env file:
-
-```bash
-touch .env
-```
-
-Fill it with the following:
-
-```
-DATABASE_URL=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_CLIENT_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-GOOGLE_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-SESSION_SECRET=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
-
-Replace the `DATABASE_URL`, `GOOGLE_CLIENT_ID`, `GOOGLE_SECRET`, and `SESSION_SECRET` with values that you provide.
-
-Delete this `README.md` file and finally, make an initial commit:
-
-```bash
-git add .
-git commit -m "initial commit"
-git push -u origin main
-```
-
-You're done!
+---
+## Whats Next(icebox)?
++ [ ] Add map api to auto complete address for recording gas stations
++ [ ] Add day/night mode switch feature 
++ [ ] Add comment delete feature for users
