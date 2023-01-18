@@ -12,18 +12,16 @@ html {
 }
 
 body {
-  background-color: #ffffff7c;
   font-family: 'Nunito', sans-serif;
   margin: 0;
 }
-
-
 
 main {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 10vh;
 }
 
 h1 {
