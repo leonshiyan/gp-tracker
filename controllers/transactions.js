@@ -1,5 +1,6 @@
 import { Transaction } from '../models/transaction.js'
 import { Station } from "../models/station.js"
+import { Profile } from "../models/profile.js"
 
 function newTrans (req,res){
   Station.find({})
@@ -28,7 +29,19 @@ function create(req, res) {
   req.body.owner = req.user.profile._id
   Transaction.create(req.body)
   .then(transaction => {
-    res.redirect('/transactions')
+    Profile.findOneAndUpdate(
+      { _id: req.user.profile._id },
+      { $push: { transactions: transaction._id } },
+      { new: true }
+    )
+    .then(profile => {
+      // The user's profile has been updated with the new transaction id
+      res.redirect('/transactions')
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/transactions')
+    })
   })
   .catch(err => {
     console.log(err)
