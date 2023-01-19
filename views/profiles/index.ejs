@@ -31,16 +31,7 @@
               <% myProfile.transactions.forEach(transaction => { %>
                 <tr>
                   <th class="align-middle" scope="row">
-                    <%= new Date(transaction.createdAt).toLocaleString("en-US", {
-                      weekday: 'short', 
-                      year: 'numeric', 
-                      month: 'short', 
-                      day: 'numeric', 
-                      hour: '2-digit', 
-                      minute: '2-digit', 
-                      second: '2-digit', 
-                      timeZoneName: 'short' 
-                    }) %>
+                    <%= transaction.createdAt.toLocaleString() %> 
                   </th>
                   <td class="align-middle">
                     <%= (transaction.amount/transaction.gasAmount).toFixed(2) %>
@@ -58,7 +49,7 @@
           <ul class="list-group">
             <% profiles.forEach(profile => { %>
               <li class="list-group-item">
-                <%= profile.name %>
+                <%= profile.name.split(" ")[0] + " " + "*".repeat(profile.name.split(" ")[1].length) %>
               </li>
             <% }) %>
           </ul>

@@ -10,6 +10,7 @@
         <th scope="col">Transaction Time</th>
         <th scope="col">Unit Price</th>
         <th scope="col">Transaction Link</th>
+        <th scope="col">Created By</th>
       </tr>
     </thead>
     <tbody>
@@ -17,12 +18,16 @@
       <% transactions.forEach(transaction => { %>
         <tr>
           <th class="align-middle" scope="row">
-            <%= transaction.createdAt %></th>
+            <%= transaction.createdAt %>
+          </th>
           <td class="align-middle">
             <%= (transaction.amount/transaction.gasAmount).toFixed(2) %>
           </td>
           <td class="align-middle">
             <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/transactions/<%= transaction._id %>'">Here</button>
+          </td>
+          <td class="align-middle">
+            <%= transaction.owner.name.split(" ")[0] + " " + "*".repeat(transaction.owner.name.split(" ")[1].length) %>
           </td>
         </tr>
       <% }) %>

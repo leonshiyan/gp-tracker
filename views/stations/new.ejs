@@ -6,15 +6,15 @@
   <div class="container-md">
   <% if (user) { %>
     <label for="station-input" class="form-label">Gas Station Added:</label>
-    <select class="form-select" size="3" aria-label="Select from options">
+    <select class="form-select text-light bg-dark" size="3" aria-label="Select from options">
       <% stations.forEach(function(station) { %>
         <option><%= station.name %>: <%= station.address %> </option>
       <% }) %>
       </select>
     <form class="row g-4 needs-validation" id="add-station-form" novalidate action="/stations" method="POST" >
       <div class="col-md-6">
-      <label for="station-input" class="form-label">New Station Name:</label>
-      <select name="name" class="form-select" id="station-input" required>
+      <label for="station-input" class="form-label">New Station Brand Name:</label>
+      <select name="name" class="form-select text-light bg-dark" id="station-input" required>
         <option value="Chevron">Chevron</option>
         <option value="Costco">Costco</option>
         <option value="Esso">Esso</option>
@@ -27,7 +27,7 @@
       </div>
       <div class="col-md-6">
         <label for="address-textarea" class="form-label">Address:</label>
-        <input type="text" class="form-control" name="address" id="address-textarea" required></textarea>
+        <input type="text" class="form-control text-light bg-dark" placeholder="e.g 7086 Academy Lane, Neenah" name="address" id="address-textarea" required></textarea>
         <div class="valid-feedback">
           Looks good!
         </div>
