@@ -10,7 +10,7 @@ function newStation(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/transactions')
+    res.redirect('/stations/new')
   })
 }
 
@@ -21,7 +21,7 @@ function create(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/transactions')
+    res.redirect('/stations/new')
   })
 }
 

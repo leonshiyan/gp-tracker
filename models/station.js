@@ -16,7 +16,8 @@ const stationSchema = new Schema({
   },
   address:{
     type:String,
-    required: true
+    match: /[A-Z]{2},(CA|US)$/,
+    required: [true, 'Address is required']
   },
   reviews:[reviewSchema]
 }, {
