@@ -16,7 +16,7 @@
             <img src="<%= myProfile.avatar %> " class="card-img-top" alt="Avatar">
             <div class="card-body">
               <p class="card-text">Your Total Milage : <%= myProfile.milage %> </p>
-              <p class="card-text">Your Fuel Efficiency : <%= (totalAmount/myProfile.milage).toFixed(2) %> ($/L) </p>
+              <p class="card-text">Your Fuel Efficiency : <%= isNaN((totalAmount/myProfile.milage).toFixed(2))? 0 : (totalAmount/myProfile.milage).toFixed(2) %> ($/L) </p>
                 <form action="/profiles/<%= myProfile._id %>/milage" method="post">
                   <label for="milage-input" class="form-label">Milage(km):</label>
                   <input type="number" min="0" class="form-control text-light bg-dark" placeholder="e.g 123" name="milage" id="milage-input" required>
