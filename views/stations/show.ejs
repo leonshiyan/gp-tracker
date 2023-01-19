@@ -11,7 +11,7 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item fs-4">Station Name : <%= station.name %></li>
         <li class="list-group-item fs-4">Station Address: <%= station.address %></li>
-        <li class="list-group-item fs-4">Average Rating : <%= (total / station.reviews.length).toFixed(1) %></li>
+        <li class="list-group-item fs-4">Average Rating : <%= isNaN((total / station.reviews.length).toFixed(1)) ? 1 : (total / station.reviews.length).toFixed(1) %></li>
       </ul>
     </div>
   <% if (user) { %>
@@ -27,7 +27,7 @@
       </div>
       <div class="input-group mb-3">
         <label class="input-group-text" for="rating-select">Rating:</label>
-        <select class="form-select text-light bg-dark" name="rating" id="rating-select">
+        <select class="form-select text-light bg-dark text-center" name="rating" id="rating-select">
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

@@ -6,26 +6,21 @@
       <tr>
         <th scope="col">Transaction Time</th>
         <th scope="col">Station Link</th>
+        <th scope="col">Purchased At</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">
-          <%= new Date(transaction.createdAt).toLocaleString("en-US", {
-            weekday: 'short', 
-            year: 'numeric', 
-            month: 'short', 
-            day: 'numeric', 
-            hour: '2-digit', 
-            minute: '2-digit', 
-            second: '2-digit', 
-            timeZoneName: 'short' 
-          }) %>
+          <%= transaction.createdAt %>
         </th>
-        <th scope="row"><a href="/stations/<%= station._id %>/show"> <%= transaction.station.name %></a></th>
+        <th scope="row">
+          <a href="/stations/<%= station._id %>/show"> <%= transaction.station.name %></a>
+        </th>
+        <th scope="row"><%= transaction.station.address %> </th>
       </tr>
     </tbody>
-    </table>   
+  </table>   
   <% if (transaction.owner.equals(user?.profile._id)) { %>
     <a href="/transactions/<%= transaction._id %>/edit">
       <button class="btn btn-warning">Update this Transaction</button>
@@ -34,9 +29,8 @@
       action="/transactions/<%= transaction._id %>?_method=DELETE"
       method="POST"
     >
-      <button class="btn btn-danger" type="submit">Delete this transaction ⚠</button>
+    <button class="btn btn-danger" type="submit">Delete this transaction ⚠</button>
     </form>
-
   <% } %>
 </div>
 
