@@ -6,7 +6,7 @@ const profileSchema = new Schema({
   name: String,
   avatar: String,
   transactions: [{type: Schema.Types.ObjectId, ref: "Transaction"}],
-  milage: Number
+  milage: {type: Number, default: 0}
 }, {
   timestamps: true
 })

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const transacSchema = new Schema({
   amount: Number,
-  gasAmount: { type: String, required: true },
+  gasAmount: { type: Number, required: true },
   unitPrice: Number,
   owner: {
     type: Schema.Types.ObjectId, 

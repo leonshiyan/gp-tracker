@@ -2,17 +2,26 @@
 <%- include('../partials/nav') %>
 
 <main>
+  <% if (user) { %>
   <div class="grid container-md gap-3 ">
     <div class="container text-center ">
       <div class="row">
         <div class="col">
-          <span class="fs-5">Hello, <%= user?user.profile.name : "Guest" %></span>
+          <span class="fs-5">Hello, <%= myProfile.name %></span>
           <div class="card" style="width: 100%;">
-            <img src="<%= user.profile.avatar %> " class="card-img-top" alt="Avatar">
+            <% let totalAmount = 0 %>
+            <% myProfile.transactions.forEach(transaction => { %>
+              <% totalAmount+= transaction.amount%> 
+            <% }) %>
+            <img src="<%= myProfile.avatar %> " class="card-img-top" alt="Avatar">
             <div class="card-body">
-              <p class="card-text">
-                <a href="/transactions/new" class="btn btn-primary">Add Transaction</a>
-              </p>
+              <p class="card-text">Your Total Milage : <%= myProfile.milage %> </p>
+              <p class="card-text">Your Fuel Efficiency : <%= (totalAmount/myProfile.milage).toFixed(2) %> ($/L) </p>
+                <form action="/profiles/<%= myProfile._id %>/milage" method="post">
+                  <label for="milage-input" class="form-label">Milage(km):</label>
+                  <input type="number" min="0" class="form-control text-light bg-dark" placeholder="e.g 123" name="milage" id="milage-input" required>
+                  <button class="btn btn-primary" type="submit">Add Milage</button>
+                </form>
             </div>
           </div>
         </div>
@@ -22,7 +31,7 @@
             <thead>
               <tr>
                 <th scope="col">Transaction Time</th>
-                <th scope="col">Unit Price</th>
+                <th scope="col">Total Amount</th>
                 <th scope="col">Transaction Link</th>
               </tr>
             </thead>
@@ -34,7 +43,7 @@
                     <%= transaction.createdAt.toLocaleString() %> 
                   </th>
                   <td class="align-middle">
-                    <%= (transaction.amount/transaction.gasAmount).toFixed(2) %>
+                    <%= transaction.amount %>
                   </td>
                   <td class="align-middle">
                     <button type="button" class="btn btn-primary btn-lg" onclick="window.location.href='/transactions/<%= transaction._id %>'">Here</button>
@@ -57,6 +66,10 @@
       </div>
     </div>
 </div>
+<% } else { %>
+  <div class="mx-auto" style="width: 500px;">
+    <h2>Please Login to Add Transaction</h2>
+  </div>
+<% } %> 
 </main>
-
 <%- include('../partials/footer') %>
