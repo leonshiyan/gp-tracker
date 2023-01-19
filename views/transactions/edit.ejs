@@ -11,21 +11,21 @@
   >
   <div class="col-md-6">
     <label for="amount-input" class="form-label">Amount:</label>
-    <input type="text" class="form-control" name="amount" id="amount-input" required value="<%= transaction.amount %>">
+    <input type="text" class="form-control text-light bg-dark" name="amount" id="amount-input" required value="<%= transaction.amount %>">
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   <div class="col-md-6">
     <label for="gas-amount-input" class="form-label">Gas Amount(L):</label>
-    <input type="text" class="form-control" name="gasAmount" id="gas-amount-input" required value="<%= transaction.gasAmount %>">
+    <input type="text" class="form-control text-light bg-dark" name="gasAmount" id="gas-amount-input" required value="<%= transaction.gasAmount %>">
     <div class="valid-feedback">
       Looks good!
     </div>
   </div>
   <div class="col-md-4">
     <label for="gas-type-select" class="form-label">Gas Type:</label>
-    <select name="gasType" class="form-select" id="gas-type-select" required>
+    <select name="gasType" class="form-select text-light bg-dark" id="gas-type-select" required>
       <option value="87">87</option>
       <option value="89">89</option>
       <option value="91">91</option>
@@ -37,7 +37,7 @@
   </div>
   <div class="col-md-8">
     <label for="station" class="form-label">Select Station</label>
-    <select name="station" class="form-select" id="station-select" required>
+    <select name="station" class="form-select text-light bg-dark" id="station-select" required>
       <% stations.forEach(station => { %>
         <option value="<%= station._id %>"><%= station.name %>:<%= station.address %> </option>
       <% }) %>
