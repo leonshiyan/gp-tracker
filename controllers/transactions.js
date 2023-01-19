@@ -1,7 +1,8 @@
 import { Transaction } from '../models/transaction.js'
 import { Station } from "../models/station.js"
 import { Profile } from "../models/profile.js"
-
+//import helper function
+import * as timeHelper from '../public/helpers/time.js'
 function newTrans (req,res){
   Station.find({})
   .then(stations =>{
@@ -14,6 +15,9 @@ function newTrans (req,res){
 function index(req, res) {
   Transaction.find({})
   .then(transactions => {
+    transactions.forEach(transaction => {
+      transaction.createdAt = timeHelper.convertToLocal(transaction.createdAt);
+    })
     res.render('transactions/index', {
       title: 'Transactions',
       transactions
