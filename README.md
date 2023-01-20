@@ -33,3 +33,4 @@ Planning materials can be found [here](https://trello.com/b/S1AY1NkM/gptracker).
 + [ ] Add map api to auto complete address for recording gas stations
 + [ ] Add day/night mode switch feature 
 + [ ] Add comment delete feature for users
++ [ ] Add Unit conversion for US users
