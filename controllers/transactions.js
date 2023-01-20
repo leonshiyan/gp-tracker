@@ -13,6 +13,7 @@ function newTrans (req,res){
     })
   })
 }
+
 function index(req, res) {
   Transaction.find({}).populate('owner', 'name')
   .then(transactions => {
@@ -21,7 +22,7 @@ function index(req, res) {
     })
     res.render('transactions/index', {
       title: 'Transactions',
-      transactions ,
+      transactions
     })
   })
   .catch(err => {
@@ -90,6 +91,7 @@ function update(req, res) {
     res.redirect('/tacos')
   })
 }
+
 function edit(req, res) {
   Transaction.findById(req.params.id)
     .then(transaction => {
@@ -111,6 +113,7 @@ function edit(req, res) {
       res.redirect('/transactions');
     });
 }
+
 function deleteTrans(req,res){
   Transaction.findById(req.params.id)
   .then(transaction => {
@@ -140,6 +143,7 @@ function deleteTrans(req,res){
     res.redirect('/transactions')
   })
 }
+
 export {
   newTrans as new,
   index,

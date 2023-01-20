@@ -12,8 +12,6 @@ router.get('/:id/show', stationsCtrl.show)
 // POST /stations
 router.post('/', stationsCtrl.create)
 
-
-
 // POST /stations/:id/reviews
 router.post('/:id/reviews', stationsCtrl.createReview)
 

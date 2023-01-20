@@ -1,6 +1,5 @@
 <%- include('../partials/html-head') %>
 <%- include('../partials/nav') %>
-
 <main>
   <h1><%= title %></h1>
   <div class="container-md">
@@ -11,7 +10,7 @@
         <option><%= station.name %>: <%= station.address %> </option>
       <% }) %>
       </select>
-    <form class="row g-4 needs-validation" id="add-station-form" novalidate action="/stations" method="POST" >
+    <form class="row g-4 needs-validation" id="add-station-form" action="/stations" method="POST" >
       <div class="col-md-6">
       <label for="station-input" class="form-label">New Station Brand Name:</label>
       <select name="name" class="form-select text-light bg-dark" id="station-input" required>

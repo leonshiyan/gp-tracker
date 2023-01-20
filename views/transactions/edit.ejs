@@ -5,7 +5,7 @@
   <div class="container-md">
     <% if (user) { %>
   <form 
-  class="row g-4 needs-validation" novalidate
+  class="row g-4 needs-validation"
   action="/transactions/<%= transaction._id %>?_method=PUT"
   method="POST"
   >

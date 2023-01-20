@@ -1,5 +1,4 @@
 import { Profile } from '../models/profile.js'
-import { Transaction } from '../models/transaction.js'
 
 function index(req, res) {
   Profile.find({})

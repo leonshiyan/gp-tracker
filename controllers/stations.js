@@ -38,6 +38,7 @@ function show(req,res){
     res.redirect('/')
   })
 }
+
 function createReview(req,res){
   // Find the station by it's _id
   Station.findById(req.params.id)
@@ -63,6 +64,7 @@ function createReview(req,res){
     res.redirect('/')
   })
 }
+
 export {
   newStation as new,
   create,
