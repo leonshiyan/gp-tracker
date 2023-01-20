@@ -41,7 +41,6 @@ function create(req, res) {
       { new: true }
     )
     .then(profile => {
-      // The user's profile has been updated with the new transaction id
       res.redirect('/transactions')
     })
     .catch(err => {
