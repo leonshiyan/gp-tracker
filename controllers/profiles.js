@@ -22,7 +22,7 @@ function index(req, res) {
 function addMilage(req,res){
   Profile.findById(req.user.profile._id)
   .then(profile => {
-    profile.milage += req.body.milage
+    profile.milage += parseInt(req.body.milage)
     profile.save()
     res.redirect('/profiles')
   })

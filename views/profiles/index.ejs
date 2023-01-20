@@ -11,7 +11,7 @@
           <div class="card" style="width: 100%;">
             <% let totalAmount = 0 %>
             <% myProfile.transactions.forEach(transaction => { %>
-              <% totalAmount+= transaction.amount%> 
+              <% totalAmount+= parseInt(transaction.amount)%> 
             <% }) %>
             <img src="<%= myProfile.avatar %> " class="card-img-top" alt="Avatar">
             <div class="card-body">
